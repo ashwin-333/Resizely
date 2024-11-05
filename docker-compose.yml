@@ -1,0 +1,22 @@
+services:
+  frontend:
+    build:
+      context: ./image-uploader
+    ports:
+      - "8080:80" # Maps the Vue frontend's port 80 to localhost:8080
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./image-uploader-backend
+    ports:
+      - "3000:3000" # Maps the Express backend's port 3000 to localhost:3000
+    depends_on:
+      - rust-service
+
+  rust-service:
+    build:
+      context: ./image-resizer
+    ports:
+      - "8081:8081" # Maps the Rust service's port 8081 to localhost:8081

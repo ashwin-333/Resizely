@@ -1,0 +1,9 @@
+[package]
+name = "image-resizer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+warp = "0.3"
+image = "0.23"
+tokio = { version = "1", features = ["full"] }
